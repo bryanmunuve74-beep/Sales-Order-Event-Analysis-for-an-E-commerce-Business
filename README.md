@@ -5,7 +5,7 @@ to convert those leads into revenue.
 Management suspects: - Significant drop-offs across the sales funnel - Excessive discounting reducing margins - Delays in sales follow-ups hurting conversions 
 ## Objective 
 The goal of this project is to: - Measure conversion rates across funnel stages - Identify where customers drop off - Quantify revenue leakage due to discounts and delays - Provide actionable, data-driven recommendations 
-📌 Overview
+## 📌 Overview
 This project demonstrates end-to-end sales funnel analysis, revenue leakage detection, and revenue optimization using Python (Pandas, NumPy, Matplotlib). The analysis mimics real-world business scenarios and provides actionable insights for sales, marketing, and finance teams.
 The pipeline includes:
 I. Data cleaning and preparation
@@ -16,7 +16,7 @@ V. Discount optimization and revenue recovery simulations
 VI. Visualizations for insights
 ## Technologies
 Python, Pandas, NumPy, Matplotlib
-🛠️ Features & Workflow
+## 🛠️ Features & Workflow
 1️⃣ Data Preprocessing
 I. Clean missing values and remove invalid records
 II. Standardize funnel stages
@@ -36,7 +36,7 @@ II. Visualize delays per funnel stage
 I. Identify high discount deals (top 10%)
 II. Simulate optimized pricing for revenue recovery
 III. Compare final revenue vs optimized revenue
-📈Visualizations:
+## 📈Visualizations:
 Sales Funnel – Customers per Stage
 Revenue Leakage by Sales Rep
 Average Delay Between Funnel Stages
