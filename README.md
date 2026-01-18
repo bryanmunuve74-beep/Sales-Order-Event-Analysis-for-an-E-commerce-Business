@@ -8,7 +8,7 @@ The goal of this project is to: - Measure conversion rates across funnel stages 
 ## 📌 Overview
 This project demonstrates end-to-end sales funnel analysis, revenue leakage detection, and revenue optimization using Python (Pandas, NumPy, Matplotlib). The analysis mimics real-world business scenarios and provides actionable insights for sales, marketing, and finance teams.
 The pipeline includes:
-#### I. Data cleaning and preparation
+##### I. Data cleaning and preparation
 #### II. Funnel size and conversion analysis
 #### III. Revenue leakage analysis
 #### IV. Deal delay analysis
