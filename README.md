@@ -45,3 +45,19 @@ The pipeline includes:
 ##### Revenue Loss from High vs Normal Discounts
 ##### Revenue Recovery from Pricing Optimization
 ##### Distribution of Recovered Revenue per Deal
+## Insights & Business Applications
+##### Identify stages where customers drop off in the sales funnel.
+##### Quantify revenue lost due to discounts and lost deals.
+##### Pinpoint sales reps responsible for revenue leakage.
+##### Simulate revenue recovery and price optimization strategies.
+##### Make data-driven recommendations to improve sales performance and profitability.
+## Outcome 
+This project demonstrates my ability to: 
+##### - Translate raw data into business insights
+##### - Quantify financial impact
+#####- Communicate recommendations clearly to stakeholders 
+## Contact 
+Open to freelance and consulting projects involving: 
+##### - Funnel analysis 
+##### - Revenue optimization 
+##### - SQL & Python analytics
