@@ -53,9 +53,11 @@ The pipeline includes:
 ##### Make data-driven recommendations to improve sales performance and profitability.
 ## Outcome 
 #### This project demonstrates my ability to: 
-##### - Translate raw data into business insights
-##### - Quantify financial impact
-##### - Communicate recommendations clearly to stakeholders 
+##### -1. Clean messy data → Ensure accuracy and reliability 
+##### 2. Analyze funnel performance → Identify drop-offs 
+##### 3. Quantify revenue leakage → Lost revenue and discount impact 
+##### 4. Model recovery scenarios → Optimized pricing insights 
+##### 5. Provide recommendations → Actionable solutions backed by data 
 ## Contact 
 #### Open to freelance and consulting projects involving: 
 ##### - Funnel analysis 
