@@ -52,12 +52,12 @@ The pipeline includes:
 ##### Simulate revenue recovery and price optimization strategies.
 ##### Make data-driven recommendations to improve sales performance and profitability.
 ## Outcome 
-This project demonstrates my ability to: 
+#### This project demonstrates my ability to: 
 ##### - Translate raw data into business insights
 ##### - Quantify financial impact
-#####- Communicate recommendations clearly to stakeholders 
+##### - Communicate recommendations clearly to stakeholders 
 ## Contact 
-Open to freelance and consulting projects involving: 
+#### Open to freelance and consulting projects involving: 
 ##### - Funnel analysis 
 ##### - Revenue optimization 
 ##### - SQL & Python analytics
