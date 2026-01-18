@@ -14,11 +14,11 @@ The pipeline includes:
 ##### IV. Deal delay analysis
 ##### V. Discount optimization and revenue recovery simulations
 ##### VI. Visualizations for insights
-## Technologies & Techniques
+## 🛠️ Technologies & Techniques
 ##### - SQL: CTEs, window functions, joins, aggregations
 ##### - Python: Pandas, NumPy, Matplotlib 
 ##### - Jupyter Notebook for analysis & storytelling 
-## 🛠️ Features & Workflow
+## ⚙️ Features & Workflow
 1️⃣ Data Preprocessing
 ##### I. Clean missing values and remove invalid records
 ##### II. Standardize funnel stages
@@ -45,20 +45,20 @@ The pipeline includes:
 ##### Revenue Loss from High vs Normal Discounts
 ##### Revenue Recovery from Pricing Optimization
 ##### Distribution of Recovered Revenue per Deal
-## Insights & Business Applications
+## 💡 Insights & Business Applications
 ##### Identify stages where customers drop off in the sales funnel.
 ##### Quantify revenue lost due to discounts and lost deals.
 ##### Pinpoint sales reps responsible for revenue leakage.
 ##### Simulate revenue recovery and price optimization strategies.
 ##### Make data-driven recommendations to improve sales performance and profitability.
-## Outcome 
+## 🏆 Outcome 
 #### This project demonstrates my ability to: 
 ##### -1. Clean messy data → Ensure accuracy and reliability 
 ##### 2. Analyze funnel performance → Identify drop-offs 
 ##### 3. Quantify revenue leakage → Lost revenue and discount impact 
 ##### 4. Model recovery scenarios → Optimized pricing insights 
 ##### 5. Provide recommendations → Actionable solutions backed by data 
-## Contact 
+## 📬 Contact 
 #### Open to freelance and consulting projects involving: 
 ##### - Funnel analysis 
 ##### - Revenue optimization 
