@@ -14,8 +14,10 @@ The pipeline includes:
 ##### IV. Deal delay analysis
 ##### V. Discount optimization and revenue recovery simulations
 ##### VI. Visualizations for insights
-##### Technologies
-Python, Pandas, NumPy, Matplotlib
+## Technologies & Techniques
+##### - SQL: CTEs, window functions, joins, aggregations
+##### - Python: Pandas, NumPy, Matplotlib 
+##### - Jupyter Notebook for analysis & storytelling 
 ## 🛠️ Features & Workflow
 1️⃣ Data Preprocessing
 ##### I. Clean missing values and remove invalid records
