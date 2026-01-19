@@ -1,0 +1,21 @@
+customer_id,order_date,order_id,list_price,discount,final_price,deal_status,event_id,event_type,event_date,sales_rep,signup_date,acquisition_channel,country
+C001,2024-01-10,O1001,150,10,135,Won,E2001,Purchase,2024-01-10,Alice,2024-01-02,Organic,Kenya
+C002,2024-01-12,O1002,200,0,200,Won,E2002,Checkout,2024-01-12,Brian,2024-01-05,Paid Ads,Kenya
+C003,2024-01-15,O1003,120,15,102,Won,E2003,Purchase,2024-01-15,Alice,2024-01-08,Email,Uganda
+C004,2024-01-18,O1004,300,20,240,Lost,E2004,Checkout,2024-01-18,Diana,2024-01-12,Organic,Kenya
+C005,2024-01-20,O1005,180,5,171,Won,E2005,Purchase,2024-01-20,Brian,2024-01-15,Paid Ads,Tanzania
+C006,2024-01-22,O1006,250,0,250,Pending,E2006,Add_to_Cart,2024-01-22,Alice,2024-01-18,Referral,Kenya
+C007,2024-01-25,O1007,90,10,81,Won,E2007,Purchase,2024-01-25,Diana,2024-01-20,Organic,Rwanda
+C008,2024-01-28,O1008,400,25,300,Won,E2008,Purchase,2024-01-28,Brian,2024-01-22,Paid Ads,Kenya
+C009,2024-02-01,O1009,160,0,160,Lost,E2009,Checkout,2024-02-01,Alice,2024-01-25,Email,Uganda
+C010,2024-02-03,O1010,220,10,198,Won,E2010,Purchase,2024-02-03,Diana,2024-01-28,Organic,Kenya
+C011,2024-02-05,O1011,140,5,133,Won,E2011,Purchase,2024-02-05,Brian,2024-01-30,Paid Ads,Tanzania
+C012,2024-02-07,O1012,310,15,263.5,Pending,E2012,Checkout,2024-02-07,Alice,2024-02-01,Referral,Kenya
+C013,2024-02-09,O1013,175,0,175,Won,E2013,Purchase,2024-02-09,Diana,2024-02-02,Organic,Kenya
+C014,2024-02-11,O1014,500,30,350,Won,E2014,Purchase,2024-02-11,Brian,2024-02-04,Paid Ads,Uganda
+C015,2024-02-13,O1015,130,10,117,Lost,E2015,Add_to_Cart,2024-02-13,Alice,2024-02-05,Email,Kenya
+C016,2024-02-15,O1016,275,5,261.25,Won,E2016,Purchase,2024-02-15,Diana,2024-02-07,Organic,Tanzania
+C017,2024-02-18,O1017,190,0,190,Pending,E2017,Checkout,2024-02-18,Brian,2024-02-10,Paid Ads,Kenya
+C018,2024-02-20,O1018,350,20,280,Won,E2018,Purchase,2024-02-20,Alice,2024-02-12,Referral,Uganda
+C019,2024-02-22,O1019,110,5,104.5,Won,E2019,Purchase,2024-02-22,Diana,2024-02-14,Organic,Kenya
+C020,2024-02-25,O1020,600,35,390,Lost,E2020,Checkout,2024-02-25,Brian,2024-02-16,Paid Ads,Kenya

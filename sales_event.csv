@@ -1,0 +1,13 @@
+event_id,customer_id,event_type,event_date,sales_rep
+E001,C001,Lead Created,2024-01-03,Alice
+E002,C001,Qualified,2024-01-04,Alice
+E003,C001,Quote Sent,2024-01-04,Alice
+E004,C001,Deal Won,2024-01-05,Alice
+E005,C002,Lead Created,2024-01-06,Bob
+E006,C002,Quote Sent,2024-01-10,Bob
+E007,C002,Deal Lost,2024-01-15,Bob
+E008,C003,Lead Created,2024-01-09,Carol
+E009,C003,Qualified,2024-01-10,Carol
+E010,C003,Quote Sent,2024-01-18,Carol
+E011,C004,Lead Created,2024-01-13,Alice
+E012,C004,Quote Sent,2024-01-20,Alice

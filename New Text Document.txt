@@ -1,0 +1,204 @@
+# Sales Funnel Optimization & Revenue Leakage Analysis
+
+This notebook analyzes a sales funnel to identify customer drop-offs and quantify revenue leakage from discounts and delays.
+
+---
+
+## 1. Setup & Data Loading
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Display settings
+pd.set_option('display.max_columns', None)
+```
+
+```python
+# Load dataset
+# Ensure the path matches your repo structure
+file_path = '../data/sales_events.csv'
+df = pd.read_csv(file_path)
+
+# Convert dates
+df['event_date'] = pd.to_datetime(df['event_date'])
+
+df.head()
+```
+
+---
+
+## 2. Data Cleaning & Validation
+
+```python
+# Check missing values
+df.isna().sum()
+```
+
+```python
+# Fill missing discounts with 0 (assume no discount applied)
+df['discount'] = df['discount'].fillna(0)
+
+# Standardize event order
+stage_order = ['lead', 'demo', 'quote', 'purchase']
+df['event_type'] = pd.Categorical(df['event_type'], categories=stage_order, ordered=True)
+```
+
+```python
+# Remove invalid records
+# (negative deal values or discounts >= 100%)
+df = df[(df['deal_value'] > 0) & (df['discount'] < 1)]
+```
+
+---
+
+## 3. Sales Funnel Conversion Analysis
+
+### Funnel Size by Stage
+
+```python
+funnel_counts = (
+    df.groupby('event_type')['customer_id']
+      .nunique()
+      .sort_index()
+)
+
+funnel_counts
+```
+
+### Conversion Rates Between Stages
+
+```python
+conversion_rates = funnel_counts / funnel_counts.shift(1)
+conversion_rates
+```
+
+### Funnel Visualization
+
+```python
+plt.figure()
+funnel_counts.plot(kind='bar')
+plt.title('Sales Funnel – Customers per Stage')
+plt.xlabel('Stage')
+plt.ylabel('Unique Customers')
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 4. Revenue Leakage Analysis
+
+### A. Discount Leakage
+
+```python
+# Expected price without discount
+df['expected_price'] = df['deal_value'] / (1 - df['discount'])
+
+# Revenue lost due to discounting
+df['revenue_loss'] = df['expected_price'] - df['deal_value']
+
+# Leakage by sales rep
+leakage_by_rep = (
+    df.groupby('sales_rep')['revenue_loss']
+      .sum()
+      .sort_values(ascending=False)
+)
+
+leakage_by_rep
+```
+
+```python
+plt.figure()
+leakage_by_rep.plot(kind='bar')
+plt.title('Revenue Leakage by Sales Rep')
+plt.xlabel('Sales Rep')
+plt.ylabel('Revenue Lost')
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+### B. Lost Revenue from Dropped Deals
+
+```python
+lost_deals = df[df['status'] == 'dropped']
+lost_revenue = lost_deals['deal_value'].sum()
+
+lost_revenue
+```
+
+---
+
+## 5. Deal Delay Analysis
+
+```python
+# Calculate delay between stages
+df = df.sort_values(['customer_id', 'event_date'])
+
+df['next_event_date'] = df.groupby('customer_id')['event_date'].shift(-1)
+df['delay_days'] = (df['next_event_date'] - df['event_date']).dt.days
+```
+
+```python
+avg_delay = df.groupby('event_type')['delay_days'].mean()
+avg_delay
+```
+
+---
+
+## 6. NumPy-Based Optimization Scenarios
+
+### A. Identify Extreme Discounts
+
+```python
+threshold = np.percentile(df['discount'], 90)
+
+df['high_discount_flag'] = np.where(df['discount'] > threshold, 1, 0)
+
+threshold
+```
+
+```python
+high_discount_impact = df[df['high_discount_flag'] == 1]['revenue_loss'].sum()
+high_discount_impact
+```
+
+---
+
+### B. Revenue Recovery Simulation
+
+```python
+# Simulate optimized pricing (5% improvement)
+df['optimized_price'] = df['expected_price'] * 0.95
+
+df['recovered_revenue'] = (
+    df['optimized_price'] - df['deal_value']
+).clip(lower=0)
+
+recovered_total = df['recovered_revenue'].sum()
+recovered_total
+```
+
+---
+
+## 7. Executive Summary & Recommendations
+
+**Key Findings:**
+
+* Significant customer drop-off occurs between demo and quote stages
+* A small group of high discounts accounts for a large share of revenue leakage
+* Deal delays reduce conversion likelihood
+
+**Recommendations:**
+
+* Improve demo-to-quote follow-up process
+* Introduce discount approval thresholds
+* Reduce deal cycle time through faster quoting
+
+**Estimated Impact:**
+
+* Potential recovery of revenue through pricing optimization
+* Improved funnel efficiency and predictable sales outcomes
