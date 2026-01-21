@@ -1,7 +1,8 @@
 import git
-import pandas as pd 
-import numpy as np 
-import matplotlib.pyplot as plt 
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 df = pd.read_csv(r"D:\sql-course-materials\New folder\full2.csv")
 print(df)
@@ -288,4 +289,3 @@ st.markdown("""
 """)
 
 st.success("✅ Recommendation: Improve event tracking, reduce high discounts, and accelerate early-stage follow-ups.")
-

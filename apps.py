@@ -1,9 +1,14 @@
-import pandas as pd 
-import numpy as np 
-import matplotlib.pyplot as plt 
+import git
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 df = pd.read_csv(r"D:\sql-course-materials\New folder\full2.csv")
 print(df)
+
+
+# 3. Sales Funnel Analysis
 ### Funnel Size by Stage 
 funnel_counts = ( 
 df.groupby('event_type')['customer_id'] 
@@ -138,5 +143,149 @@ plt.tight_layout()
 plt.show()
 
 
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
+# -----------------------------
+# PAGE CONFIG
+# -----------------------------
+st.set_page_config(
+    page_title="Sales Funnel Executive Dashboard",
+    layout="wide"
+)
 
+st.title("📊 Sales Funnel Executive Dashboard")
+st.markdown("Interactive revenue and funnel performance overview")
+
+# -----------------------------
+# DATA (from your analysis)
+# -----------------------------
+funnel_counts = pd.Series(
+    [2, 6, 12],
+    index=["Add to Cart", "Checkout", "Purchase"]
+)
+
+conversion_rates = pd.Series(
+    [np.nan, 3.0, 2.0],
+    index=["Add to Cart", "Checkout", "Purchase"]
+)
+
+avg_delay = pd.Series(
+    [36.0, 30.17, 24.08],
+    index=["Add to Cart", "Checkout", "Purchase"]
+)
+
+discount_summary = pd.Series(
+    [425, 155],
+    index=["Normal Discounts", "High Discounts"]
+)
+
+price_summary = pd.DataFrame({
+    "Metric": ["Final Revenue", "Optimized Revenue", "Recovered Revenue"],
+    "Amount": [4755.00, 5601.75, 846.75]
+})
+
+lost_revenue = 1140
+recovered_revenue = 846.75
+
+# -----------------------------
+# KPI SECTION
+# -----------------------------
+st.subheader("🔑 Key Business KPIs")
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Lost Revenue", f"{lost_revenue}")
+col2.metric("Recovered Revenue", f"{recovered_revenue}")
+col3.metric(
+    "Recovery Rate",
+    f"{(recovered_revenue / lost_revenue) * 100:.1f}%"
+)
+
+st.divider()
+
+# -----------------------------
+# INTERACTIVE CONTROLS
+# -----------------------------
+st.subheader("🎛 Scenario Controls")
+
+recovery_slider = st.slider(
+    "Adjust Revenue Recovery (%)",
+    min_value=0,
+    max_value=100,
+    value=74
+)
+
+simulated_recovery = lost_revenue * (recovery_slider / 100)
+simulated_total_revenue = price_summary.loc[
+    price_summary["Metric"] == "Final Revenue", "Amount"
+].values[0] + simulated_recovery
+
+st.info(
+    f"💡 Simulated Recovered Revenue: {simulated_recovery:.2f} | "
+    f"Projected Total Revenue: {simulated_total_revenue:.2f}"
+)
+
+st.divider()
+
+# -----------------------------
+# CHARTS
+# -----------------------------
+colA, colB = st.columns(2)
+
+# Funnel Volume
+with colA:
+    st.subheader("Funnel Volume by Stage")
+    fig, ax = plt.subplots()
+    funnel_counts.plot(kind="bar", ax=ax)
+    ax.set_ylabel("Customers")
+    st.pyplot(fig)
+
+# Conversion Rates
+with colB:
+    st.subheader("Conversion Rates")
+    fig, ax = plt.subplots()
+    conversion_rates.plot(kind="bar", ax=ax)
+    ax.set_ylabel("Rate")
+    st.pyplot(fig)
+
+colC, colD = st.columns(2)
+
+# Average Delay
+with colC:
+    st.subheader("Average Delay (Days)")
+    fig, ax = plt.subplots()
+    avg_delay.plot(kind="bar", ax=ax)
+    ax.set_ylabel("Days")
+    st.pyplot(fig)
+
+# Discount Impact
+with colD:
+    st.subheader("Revenue Loss by Discount Type")
+    fig, ax = plt.subplots()
+    discount_summary.plot(kind="bar", ax=ax)
+    ax.set_ylabel("Revenue Loss")
+    st.pyplot(fig)
+
+# Revenue Performance
+st.subheader("💰 Revenue Performance")
+fig, ax = plt.subplots()
+ax.bar(price_summary["Metric"], price_summary["Amount"])
+ax.set_ylabel("Amount")
+st.pyplot(fig)
+
+# -----------------------------
+# EXECUTIVE INSIGHTS
+# -----------------------------
+st.subheader("🧠 Executive Insights")
+
+st.markdown("""
+- Funnel shows **data inconsistency** (more purchases than add-to-carts)
+- **Early-stage delays** are highest and reduce conversion
+- **High discounts** contribute disproportionately to revenue leakage
+- **Up to 74% of lost revenue** is realistically recoverable
+""")
+
+st.success("✅ Recommendation: Improve event tracking, reduce high discounts, and accelerate early-stage follow-ups.")
