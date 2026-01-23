@@ -4,7 +4,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv(r"D:\sql-course-materials\New folder\full2.csv")
+df = pd.read_csv("data/full2.csv")
+)
 print(df)
 
 
