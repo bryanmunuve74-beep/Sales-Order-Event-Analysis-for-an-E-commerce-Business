@@ -1,4 +1,6 @@
 # Sales Funnel Optimization & Revenue Leakage Analysis (SQL & Python) 
+## 🌐 Live Dashboard
+You can interact with the dashboard here: [Streamlit Dashboard](https://sales-order-event-analysis-for-an-e-commerce-business-uvz9zjoy.streamlit.app/)
 ## Business Problem 
 An e-commerce business is generating strong lead volume but struggling 
 to convert those leads into revenue. 
